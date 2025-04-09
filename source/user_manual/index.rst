@@ -7,4 +7,5 @@ Realtek AmebaPro2 AI Video Manual
    NN_deployment/index
    Acuity_tool/index
    NN_quickstart/index
+   AI_train_server/index
  
