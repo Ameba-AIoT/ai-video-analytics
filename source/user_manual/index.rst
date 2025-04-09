@@ -5,4 +5,5 @@ Realtek AmebaPro2 user manual
    :maxdepth: 1
 
    NN_deployment/index
+   Acuity_tool/index
  

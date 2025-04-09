@@ -350,19 +350,19 @@ The following are the steps which will be added in VIPNN module,
     * defined the structure and add nn_desired_class_t inside structure nnmodel_t
     * defined set_desired_class function and add nn_set_desired_class_t in nnmodel_t structure
 
-.. code-block:: bash
+.. code-block:: c
 
     typedef struct nn_desired_class_s {
-	    int *class_info;
-	    int len;
+        int *class_info;
+        int len;
     } nn_desired_class_t;
 
     typedef void (*nn_set_desired_class_t)(nn_desired_class_t *desired_class_list);
     typedef struct nnmodel_s {
         ...
-	    nn_set_confidence_thresh_t set_confidence_thresh;
-	    nn_set_nms_thresh_t set_nms_thresh;
-	    nn_set_desired_class_t set_desired_class;
+        nn_set_confidence_thresh_t set_confidence_thresh;
+        nn_set_nms_thresh_t set_nms_thresh;
+        nn_set_desired_class_t set_desired_class;
         ...
     } nnmodel_t;
 
@@ -370,18 +370,18 @@ The following are the steps which will be added in VIPNN module,
 **In module_vipnn.c**
     * defined the register vipnn case
 
-.. code-block:: bash
+.. code-block:: c
 
     case CMD_VIPNN_SET_DESIRED_CLASS:
-		if (ctx->params.model->set_desired_class) {
-			ctx->params.model->set_desired_class((nn_desired_class_t *)arg);
-		}
-		break;
+        if (ctx->params.model->set_desired_class) {
+            ctx->params.model->set_desired_class((nn_desired_class_t *)arg);
+        }
+        break;
 
 **In model_yolov9.c**
     * set the desired class for yolov9
 
-.. code-block:: bash
+.. code-block:: c
 
     void yolov9_set_desired_class(nn_desired_class_t *desired_class_list)
     {
@@ -392,7 +392,7 @@ The following are the steps which will be added in VIPNN module,
 **In mmf2_video_example_vipnn_rtsp_init.c**
     * specify the target class and register through vipnn module
 
-.. code-block:: bash
+.. code-block:: c
 
     static int desired_class_list[] = {0, 2, 5, 7};
     static const int class_size = (sizeof(desired_class_list) / sizeof(int));
@@ -448,27 +448,26 @@ The anchor num is 3549 for yolov9_tiny, and the classes num is 80, the output of
 - undernumber: num anchor, ex. p2_1 represent the score of class 2 for anchor 1, p80_3500 represent the score of class 80 for anchor 3500
 
 .. code-block:: c
+    :emphasize-lines: 7,13
 
     int yolov9_postprocess(void *tensor_out, nn_tensor_param_t *param, void *res)
     {
         void **tensor = (void **)tensor_out;
-
-        //decode the tensor data, user need to understand the output format of tensor
         for(int idx=0; i < num_anchor; idx++){
             int cur_label = yolov9_desired_class_list[0]*num_anchor;
             uint8_t *tmp_pred_u8 = (uint8_t *)preds + idx;
-            ** This algo will execute faster since it only search the desired_class_list** 
-			for(int i=0; i < yolov9_desired_class_list_len; i++){
-				if (tmp_pred_u8[yolov9_desired_class_list[i]*num_anchor] > tmp_pred_u8[cur_label]) {
-					cur_label = yolov9_desired_class_list[i]*num_anchor;
-				}
-			}
-            ** This algo will execute slower since it search all 80 classes** 
+            //This algo will execute faster since it only search the desired_class_list
+            for(int i=0; i < yolov9_desired_class_list_len; i++){
+                if (tmp_pred_u8[yolov9_desired_class_list[i]*num_anchor] > tmp_pred_u8[cur_label]) {
+                    cur_label = yolov9_desired_class_list[i]*num_anchor;
+                }
+            }
+            //This algo will execute slower since it search all 80 classes
             for (int label = 0; label < num_class; label++) {
-				if (tmp_pred_u8[label*num_anchor] > tmp_pred_u8[cur_label]) {
-					cur_label = label*num_anchor;
-				}
-			}
+                if (tmp_pred_u8[label*num_anchor] > tmp_pred_u8[cur_label]) {
+                    cur_label = label*num_anchor;
+                }
+            }
         }
     }
 
