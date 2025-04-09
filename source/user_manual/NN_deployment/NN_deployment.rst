@@ -39,8 +39,10 @@ Setup Acuity toolkit on PC
 
 The Acuity toolkit would be required to generate the NN network binary
 file from a pre-trained model. The following documents and tools are
-provided by Verisillicon, and please refer its user guild to setup the
+provided by Verisillicon, and please refer its user guide to setup the
 PC environment.
+
+Please refer to :ref:`target-section-acuity-install` about how to install Verisilicon's Acuity Toolkit
 
 Table 1-1 Acuity tool and document
 

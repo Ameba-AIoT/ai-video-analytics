@@ -1,9 +1,10 @@
-Realtek AmebaPro2 user manual
-=============================
+Realtek AmebaPro2 AI Video Manual
+=================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    NN_deployment/index
    Acuity_tool/index
+   NN_quickstart/index
  

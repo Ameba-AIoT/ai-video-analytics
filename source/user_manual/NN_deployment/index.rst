@@ -2,7 +2,6 @@ Realtek AmebaPro2 NN deployment
 ===============================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    NN_deployment
-   NN_example

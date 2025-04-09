@@ -1,8 +1,8 @@
-Realtek AmebaPro2 Acuity Toolkit
-================================
+Realtek AmebaPro2 Model Conversion Tool
+=======================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    Acuity_installation
    Acuity_license

@@ -1,5 +1,5 @@
-NN Example (Yolov9_tiny) & Acuity Model conversion 
-==================================================
+NN Example (Yolov9_tiny)
+========================
 
 .. contents::
   :local:
@@ -8,7 +8,7 @@ NN Example (Yolov9_tiny) & Acuity Model conversion
 Using customized NN model
 -------------------------
 
-This section will demonstrate the process of deploying yolov9-tiny. 
+This section will demonstrate the process of deploying yolov9-tiny.
 
 Setup Acuity toolkit on PC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -18,25 +18,7 @@ file from a pre-trained model. The following documents and tools are
 provided by Verisillicon, and please refer its user guide to setup the
 PC environment.
 
-.. note :: Viplite driver is the NN driver on AmebaPro2 to work with NN engine. If the customized model is converted by newer AcuityToolkit, it should be used with newer Viplite driver. If the model is converted by old AcuityToolkit, it can be also used with newer Viplite driver. Therefore, user do not need to convert the model by new tool if they upgrade the Viplite driver (NN library in SDK: libnn.a).
-.. note :: For Acutiy 6.18.0, 1.12.0 driver doesn't support all kinds of model (For example, 1.12.0 support yolov4 but not yolov9), therefore, it is recommed to upgrade Viplite driver to 2.0.0
-
-
-Table 1-1 Acuity tool and document
-
-+-------------------------+--------+--------+-------+--------+
-|                                  | AcuityToolkit version   |
-+                                  +--------+-------+--------+
-|                                  | 5.21.1 | 6.6.1 | 6.18.X |
-+-------------------------+--------+--------+-------+--------+
-| Viplite driver version  | 1.3.4  |   V    |   X   |   X    |
-+                         +--------+--------+-------+--------+
-|                         | 1.8.0  |   V    |   V   |   X    |
-+                         +--------+--------+-------+--------+
-|                         | 1.12.0 |   V    |   V   |  V/X   |
-+                         +--------+--------+-------+--------+
-|                         | 2.0.0  |   V    |   V   |   V    |
-+-------------------------+--------+--------+-------+--------+
+Please refer to :ref:`target-section-acuity-install` about how to install Verisilicon's Acuity Toolkit
 
 |
 
@@ -56,7 +38,7 @@ https://github.com/WongKinYiu/yolov9?tab=readme-ov-file\ .
 
 .. code-block:: bash
 
-    $ python3 export.py --weight yolov9-t.pt --imgsz 416 --include onnx
+    $ python3 export.py --weight yolov9-t.pt --imgsz 416 416 --include onnx
 
 (2) import the model:
 
@@ -117,25 +99,7 @@ After sperating the box and score, the model structure of yolov9 was shown below
 
 (5) add the following to the command in pegasus_export_ovx.sh
 
-..
-
-if **Acuity 5.21.1**:
-
-.. code-block:: bash
-
-   --optimize 'VIP8000NANONI_PID0XAD' \
-   --pack-nbg-viplite \
-   --viv-sdk 'home/Acuity/VivanteIDE5.3.0/cmdtools' \
-
-if **Acuity 6.6.1**:
-
-.. code-block:: bash
-
-   --optimize 'VIP8000NANONI_PID0XAD' \
-   --pack-nbg-unify \
-   --viv-sdk 'home/Acuity/VivanteIDE5.7.0/cmdtools' \
-
-if **Acuity 6.18.0 or 6.18.8**:
+**Acuity 6.18.8**:
 
 .. code-block:: bash
 
@@ -152,7 +116,7 @@ if **Acuity 6.18.0 or 6.18.8**:
     $ ./pegasus_export_ovx.sh yolov9_tiny QType
 
 
-Then, a network_binary.nb (yolov9_tiny.nb) will be generated. The generated nb file will locate in **wksp/yolov9-t-converted_uint8_nbg_unify**
+Then, a network_binary.nb (yolov9_tiny.nb) will be generated. The generated nb file will locate in **wksp/yolov9-tiny_uint8_nbg_unify**
 
 **The instructions above is the process of normal quantization. If you want to improve the model precision of 8bit quantize, please refer to the hybrid quantize section**
 
@@ -575,6 +539,7 @@ To perform hybrid quantization, use the quantize command in the following seqeun
     In the .quantize file, the customized_quantize_layers section provide suggests layers for a futher quantization with the dynamic_fixed_point-i16 quantization type
 
 .. code-block:: bash
+    :emphasize-lines: 7, 8
 
     python3 pegasus.py quantize \
     --model 'yolov9-t-converted.json' \
@@ -591,9 +556,10 @@ To perform hybrid quantization, use the quantize command in the following seqeun
     Since 16 bit quantize is only required when we want to represent score information with box information (the last few layer in yolov9), therefore, we only quantized the 
     last few layers as dynamic_fixed_point-i16 (the rest remain asymmetric_affine).
 
-(3) Use --hybrid arguments with the updated .quantize files to quantize the network with the same quantization type as Step1. This generates .quantize.json and .quantize files.
+(3) Use --hybrid arguments with the updated .quantize files to quantize the network with the same quantization type as Step1. This generates .quantize.json and update the .quantize files.
 
 .. code-block:: bash
+    :emphasize-lines: 8
 
     python3 pegasus.py quantize \
     --model 'yolov9-t-converted.json' \
@@ -607,7 +573,8 @@ To perform hybrid quantization, use the quantize command in the following seqeun
 (4) Export such hybrid-quantize model with the .data and the generated .quantize.json files.
 
 .. code-block:: bash
-
+    :emphasize-lines: 2
+    
     python3 pegasus.py export ovxlib \
     --model 'yolov9-t-converted_uint8.quantize.json' \
     --model-data 'yolov9-t-converted.data' \

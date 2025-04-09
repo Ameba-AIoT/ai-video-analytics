@@ -1,4 +1,4 @@
-.. _target-section:
+.. _target-section-acuity-license:
 
 Acuity License
 ==============
