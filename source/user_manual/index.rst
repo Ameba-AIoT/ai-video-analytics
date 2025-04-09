@@ -6,4 +6,5 @@ Realtek AmebaPro2 user manual
 
    NN_deployment/index
    Acuity_tool/index
+   AI_train_server/index
  
