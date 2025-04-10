@@ -68,7 +68,7 @@ After installation, please refer to the scripts in acuity_examples_c901149.tgz t
 * Users can look at **Vivante.Programming.ACUITY.Toolkit.User.Guide.pdf: Section 3.2 pegasus Workflow** to understand the procedure
 * Users can look at **Vivante.Programming.ACUITY.Toolkit.User.Guide.pdf: section 3.4 Command Reference** for detail information about import, quantize, inference, and export for a model
 * Users can create their own folder in acuity_examples_c901149 for their customized model (under Models folder)
-* Users can also refer to the article NN Deployment and NN quick start (Yolov9_tiny) for examples of acuity model conversion
+* Users can also refer to the article NN Deployment and NN Quantization Discussion (Yolov9_tiny) for examples of acuity model conversion
 
 Install VivanteIDE
 ------------------
