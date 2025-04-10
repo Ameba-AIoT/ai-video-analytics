@@ -54,4 +54,4 @@ AI Training Server Run
 .. figure:: ../../_static/user_manual/AI_train_server/ai_train_server_run_1.jpg
    :align: center
 
-   Change password
+   'Run' and 'Download Model' button
