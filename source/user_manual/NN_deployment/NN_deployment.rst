@@ -1,9 +1,6 @@
 NN Deployment
 =============
 
-.. sectnum::
-  :start: 1
-
 AmebaPro2 has an NN H/W engine to accelerate the neural network
 inference process. NN models obtained from different AI framework, such
 as Keras, Tensorflow, Tensorflow Lite, PyTorch, Caffe, ONNX, Darknet and
@@ -14,7 +11,7 @@ Following is the workflow of model deploying:
 .. figure:: ../../_static/user_manual/NN_deployment/image2.png
    :align: center
 
-   Figure 1-1 NN model workflow
+   NN model workflow
 
 
 |
@@ -23,13 +20,14 @@ Using customized NN model
 -------------------------
 
 This section will demonstrate how to deploy a pre-trained model. Take
-yolov4-tiny pre-trained model for example; Figure 1‑2 is the flowchart
+yolov4-tiny pre-trained model for example; :numref:`NN_deployment-image3` is the flowchart
 of the whole procedure:
 
 .. figure:: ../../_static/user_manual/NN_deployment/image3.png
    :align: center
+   :name: NN_deployment-image3
 
-   Figure 1-2 yolov4-tiny deployment workflow
+   yolov4-tiny deployment workflow
 
 
 |
@@ -44,46 +42,43 @@ PC environment.
 
 Please refer to :ref:`target-section-acuity-install` about how to install Verisilicon's Acuity Toolkit
 
-Table 1-1 Acuity tool and document
-
-
-
-
-+---------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| Ver.          | Acuity Tool / Document                                             | Description                                                                                                                             |
-+===============+====================================================================+=========================================================================================================================================+
-| Acuity 5.21.1 | Vivante.VIP.ACUITY.Toolkit.User.Guide-v0.80-20210326.pdf           | -  Acuity toolkit user guide document                                                                                                   |
-|               |                                                                    |                                                                                                                                         |
-|               | acuity_toolkit_binary_5.21.1.zip                                   | -  Acuity binary/python version toolkit (Please check the installation steps in chapter 2 of Vivante.VIP.ACUITY.Toolkit.User.Guide.pdf) |
-|               |                                                                    |                                                                                                                                         |
-|               | acuity-toolkit-whl-5.21.1.zip                                      | -  Acuity example and scripts                                                                                                           |
-|               |                                                                    |                                                                                                                                         |
-|               | acuity-examples.zip                                                |                                                                                                                                         |
-+               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-|               | Verisilicon_SW_VIP_NBInfo_v1.1.10_20210331.tgz                     | -  memory evaluation tool (Please check the usage guidelines in its readme file)                                                        |
-+               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-|               | VivanteIDE5.3.0_cmdtools.zip                                       | -  command line tool to export network binary file                                                                                      |
-+---------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| Acuity 6.6.1  | Verisilicon_Tool_Acuity_Toolkit_6.6.1_Binary_Whl_Src_20220505.tgz  | -  Acuity toolkit user guide document                                                                                                   |
-|               |                                                                    |                                                                                                                                         |
-|               |                                                                    | -  Acuity binary/python version toolkit (Please check the installation steps in chapter 2 of Vivante.VIP.ACUITY.Toolkit.User.Guide.pdf) |
-|               |                                                                    |                                                                                                                                         |
-|               |                                                                    | -  Acuity example and scripts                                                                                                           |
-+               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-|               | Verisilicon_SW_NBInfo_1.2.4_20220505.tgz                           | -  memory evaluation tool (Please check the usage guidelines in its readme file)                                                        |
-+               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-|               | Verisilicon_Tool_VivanteIDE_v5.7.0                                 | -  command line tool to export network binary file                                                                                      |
-+---------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-| Acuity 6.18.0 | Verisilicon_Tool_Acuity_Toolkit_6.18.0_Binary_Whl_Src_20230331.tgz | -  Acuity toolkit user guide document                                                                                                   |
-|               |                                                                    |                                                                                                                                         |
-|               |                                                                    | -  Acuity binary/python version toolkit (Please check the installation steps in chapter 2 of Vivante.VIP.ACUITY.Toolkit.User.Guide.pdf) |
-|               |                                                                    |                                                                                                                                         |
-|               |                                                                    | -  Acuity example and scripts                                                                                                           |
-+               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-|               | Verisilicon_SW_NBInfo_1.2.17_20230412.tgz                          | -  memory evaluation tool (Please check the usage guidelines in its readme file)                                                        |
-+               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-|               | Verisilicon_Tool_VivanteIDE_v5.8.1                                 | -  command line tool to export network binary file                                                                                      |
-+---------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+   
+.. table:: Acuity tool and document
+    
+    +---------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+    | Ver.          | Acuity Tool / Document                                             | Description                                                                                                                             |
+    +===============+====================================================================+=========================================================================================================================================+
+    | Acuity 5.21.1 | Vivante.VIP.ACUITY.Toolkit.User.Guide-v0.80-20210326.pdf           | -  Acuity toolkit user guide document                                                                                                   |
+    |               |                                                                    |                                                                                                                                         |
+    |               | acuity_toolkit_binary_5.21.1.zip                                   | -  Acuity binary/python version toolkit (Please check the installation steps in chapter 2 of Vivante.VIP.ACUITY.Toolkit.User.Guide.pdf) |
+    |               |                                                                    |                                                                                                                                         |
+    |               | acuity-toolkit-whl-5.21.1.zip                                      | -  Acuity example and scripts                                                                                                           |
+    |               |                                                                    |                                                                                                                                         |
+    |               | acuity-examples.zip                                                |                                                                                                                                         |
+    +               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+    |               | Verisilicon_SW_VIP_NBInfo_v1.1.10_20210331.tgz                     | -  memory evaluation tool (Please check the usage guidelines in its readme file)                                                        |
+    +               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+    |               | VivanteIDE5.3.0_cmdtools.zip                                       | -  command line tool to export network binary file                                                                                      |
+    +---------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+    | Acuity 6.6.1  | Verisilicon_Tool_Acuity_Toolkit_6.6.1_Binary_Whl_Src_20220505.tgz  | -  Acuity toolkit user guide document                                                                                                   |
+    |               |                                                                    |                                                                                                                                         |
+    |               |                                                                    | -  Acuity binary/python version toolkit (Please check the installation steps in chapter 2 of Vivante.VIP.ACUITY.Toolkit.User.Guide.pdf) |
+    |               |                                                                    |                                                                                                                                         |
+    |               |                                                                    | -  Acuity example and scripts                                                                                                           |
+    +               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+    |               | Verisilicon_SW_NBInfo_1.2.4_20220505.tgz                           | -  memory evaluation tool (Please check the usage guidelines in its readme file)                                                        |
+    +               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+    |               | Verisilicon_Tool_VivanteIDE_v5.7.0                                 | -  command line tool to export network binary file                                                                                      |
+    +---------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+    | Acuity 6.18.0 | Verisilicon_Tool_Acuity_Toolkit_6.18.0_Binary_Whl_Src_20230331.tgz | -  Acuity toolkit user guide document                                                                                                   |
+    |               |                                                                    |                                                                                                                                         |
+    |               |                                                                    | -  Acuity binary/python version toolkit (Please check the installation steps in chapter 2 of Vivante.VIP.ACUITY.Toolkit.User.Guide.pdf) |
+    |               |                                                                    |                                                                                                                                         |
+    |               |                                                                    | -  Acuity example and scripts                                                                                                           |
+    +               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+    |               | Verisilicon_SW_NBInfo_1.2.17_20230412.tgz                          | -  memory evaluation tool (Please check the usage guidelines in its readme file)                                                        |
+    +               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+    |               | Verisilicon_Tool_VivanteIDE_v5.8.1                                 | -  command line tool to export network binary file                                                                                      |
+    +---------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+   
 
 .. note :: Viplite driver is the NN driver on AmebaPro2 to work with NN engine. If the customized model is converted by newer AcuityToolkit, it should be used with newer Viplite driver. If the model is converted by old AcuityToolkit, it can be also used with newer Viplite driver. Therefore, user do not need to convert the model by new tool if they upgrade the Viplite driver (NN library in SDK: libnn.a).
 
@@ -178,14 +173,14 @@ each channel of weights. The NPU on Pro2 doesn't support every channel
 have its own quantization parameter(scale,zp), so please use the
 per-tensor method instead.
 
-Table 1-2 NPU HW supported quantization type
-
-=================== ========== =========================
-quantizer           qtype      per-channel or per-tensor
-=================== ========== =========================
-asymmetric_affine   uint8      only per-tensor
-dynamic_fixed_point int8/int16 only per-tensor
-=================== ========== =========================
+.. table:: NPU HW supported quantization type
+    
+    =================== ========== =========================
+    quantizer           qtype      per-channel or per-tensor
+    =================== ========== =========================
+    asymmetric_affine   uint8      only per-tensor
+    dynamic_fixed_point int8/int16 only per-tensor
+    =================== ========== =========================
 
 NPU has three main unit: NN, TP and PPU(SHADER). NN and TP are HW
 accelerator; PPU(SHADER) is general programmable unit. NN/TP only
@@ -434,24 +429,24 @@ This section introduce how to evaluate NN model size and DDR usage. The
 following table shows the memory information of existing model provided
 in SDK:
 
-Table 1-3 Model memory and size
-
-==================== ================= ========== ========= ============================ ============================
-Category             Model             Input size Quantized DDR memory                   File size
-==================== ================= ========== ========= ============================ ============================
-Object detection     | Yolov3-tiny     | 416x416  | uint8   | 6.9 MB (6,946,128 bytes)|  | 5.6 MB (5,568,384 bytes)
-                     | Yolov4-tiny     | 416x416  | uint8   | 7.7 MB (7,712,412 bytes)|  | 4.1 MB (4,131,712 bytes)
-                     | Yolov4-tiny     | 576x320  | uint8   | 7.48 MB (7,840,836 bytes)  | 3.85 MB (4,043,136 bytes)
-                     | Yolov7-tiny     | 416x416  | uint8   | 8.2 MB (8,597,072 bytes)   | 4.44 MB (4,664,512 bytes)
-                     | NanoDet-Plus-m  | 416x416  | uint8   | 4.33 MB (4,542,016 bytes)  | 1.86 MB (1,959,040 bytes)
-                     | NanoDet-Plus-m  | 576x320  | uint8   | 4.53 MB (4,746,556 bytes)  | 1.83 MB (1,924,096 bytes)
-Face detection       | SCRFD           | 640x640  | uint8   | 4.1 MB (4,291,200 bytes)   | 0.68 MB (715,584 bytes)
-                     | SCRFD           | 576x320  | uint8   | 2.6 MB (2,753,864 bytes)   | 0.56 MB (583,232 bytes)
-Face Recognition     | MobileFaceNet   | 112x112  | int8    | 1.72 MB (1,799,716 bytes)  | 0.86 MB (904,576 bytes)
-                     | MobileFaceNet   | 112x112  | int16   | 5.1 MB (5,343,948 bytes)   | 3.42MB (3,590,656 bytes)
-Sound classification | YAMNet          | 15600x1  | fp16    | 9.2 MB (9,172,348 bytes)   | 8.7 MB (8,669,888 bytes)
-                     | YAMNet_s        | 96x64    | hybrid  | 0.73 MB (729,608 bytes)    | 0.67 MB (678,336 bytes)
-==================== ================= ========== ========= ============================ ============================
+.. table:: Model memory and size
+    
+    ==================== ================= ========== ========= ============================ ============================
+    Category             Model             Input size Quantized DDR memory                   File size
+    ==================== ================= ========== ========= ============================ ============================
+    Object detection     | Yolov3-tiny     | 416x416  | uint8   | 6.9 MB (6,946,128 bytes)|  | 5.6 MB (5,568,384 bytes)
+                         | Yolov4-tiny     | 416x416  | uint8   | 7.7 MB (7,712,412 bytes)|  | 4.1 MB (4,131,712 bytes)
+                         | Yolov4-tiny     | 576x320  | uint8   | 7.48 MB (7,840,836 bytes)  | 3.85 MB (4,043,136 bytes)
+                         | Yolov7-tiny     | 416x416  | uint8   | 8.2 MB (8,597,072 bytes)   | 4.44 MB (4,664,512 bytes)
+                         | NanoDet-Plus-m  | 416x416  | uint8   | 4.33 MB (4,542,016 bytes)  | 1.86 MB (1,959,040 bytes)
+                         | NanoDet-Plus-m  | 576x320  | uint8   | 4.53 MB (4,746,556 bytes)  | 1.83 MB (1,924,096 bytes)
+    Face detection       | SCRFD           | 640x640  | uint8   | 4.1 MB (4,291,200 bytes)   | 0.68 MB (715,584 bytes)
+                         | SCRFD           | 576x320  | uint8   | 2.6 MB (2,753,864 bytes)   | 0.56 MB (583,232 bytes)
+    Face Recognition     | MobileFaceNet   | 112x112  | int8    | 1.72 MB (1,799,716 bytes)  | 0.86 MB (904,576 bytes)
+                         | MobileFaceNet   | 112x112  | int16   | 5.1 MB (5,343,948 bytes)   | 3.42MB (3,590,656 bytes)
+    Sound classification | YAMNet          | 15600x1  | fp16    | 9.2 MB (9,172,348 bytes)   | 8.7 MB (8,669,888 bytes)
+                         | YAMNet_s        | 96x64    | hybrid  | 0.73 MB (729,608 bytes)    | 0.67 MB (678,336 bytes)
+    ==================== ================= ========== ========= ============================ ============================
 
 |
 
@@ -518,8 +513,8 @@ Take yolov4-tiny for example, the model size is 4MB
 
 .. figure:: ../../_static/user_manual/NN_deployment/image5.png
    :align: center
-
-   Figure 1-3 model network binary
+   
+   model network binary
 
 The nn region length in
 "project\realtek_amebapro2_v0_example\GCC-RELEASE\mp\amebapro2_partitiontable.json"
@@ -589,8 +584,8 @@ Check each model size and calculate the total size = 1,535KB + 3,507KB +
 
 .. figure:: ../../_static/user_manual/NN_deployment/image6.png
    :align: center
-
-   Figure 1-4 model network binary size
+   
+   model network binary size
 
 Therefore, the nn region length in
 "project\realtek_amebapro2_v0_example\GCC-RELEASE\mp\amebapro2_partitiontable.json"
@@ -619,15 +614,15 @@ The yolo nn example is a part of mmf video joined example. Please uncomment the 
 
 The content of this example is located in "mmf2_video_example_vipnn_rtsp_init.c".
 
-Table 1-4 NN examples
-
-================================== ============================== =================================================================
-Example                            Description                    Result
-================================== ============================== =================================================================
-mmf2_video_example_vipnn_rtsp_init CH1 Video -> H264/HEVC -> RTSP RTSP video stream over the network.
-                                                                 
-                                   CH4 Video -> RGB -> NN         NN do object detection and draw the bounding box to RTSP channel.
-================================== ============================== =================================================================
+.. table:: NN examples
+   
+    ================================== ============================== =================================================================
+    Example                            Description                    Result
+    ================================== ============================== =================================================================
+    mmf2_video_example_vipnn_rtsp_init CH1 Video -> H264/HEVC -> RTSP RTSP video stream over the network.
+                                                                    
+                                       CH4 Video -> RGB -> NN         NN do object detection and draw the bounding box to RTSP channel.
+    ================================== ============================== =================================================================
 
 
 |
@@ -737,8 +732,8 @@ After running the command above, you will get the flash_ntz.nn.bin
 
 .. figure:: ../../_static/user_manual/NN_deployment/image7.png
    :align: center
-
-   Figure 1-5 image with NN model
+   
+   image with NN model
 
 Then, use the image tool to download it to AmebaPro2:
 
@@ -843,8 +838,8 @@ VLC player.
 
 .. figure:: ../../_static/user_manual/NN_deployment/image8.png
    :align: center
-
-   Figure 1-6 VLC validation
+   
+   VLC validation
 
 
 |
@@ -937,24 +932,24 @@ model binary. The binary graph format is shown as following table; the
 network name is located at 12 bytes offset from head with 64 bytes
 length.
 
-Table 1-5 binary graph format
-
-=========== ============ ============= ========= ================= ============================================================
-**Section** **Field**    **Data Type** **Count** **Size in Bytes** **Meaning**
-Header      Magic        CHAR          4         4                 A magic number for a valid binary graph file must be "VPMN".
-\           …            UINT32        1         4                 …
-\           …            UINT32        1         4                 …
-\           Network_name CHAR          64        64                Indicates the name of a network.
-\           …            UINT32        1         4                 …
-=========== ============ ============= ========= ================= ============================================================
+.. table:: binary graph format
+    
+    =========== ============ ============= ========= ================= ============================================================
+    **Section** **Field**    **Data Type** **Count** **Size in Bytes** **Meaning**
+    Header      Magic        CHAR          4         4                 A magic number for a valid binary graph file must be "VPMN".
+    \           …            UINT32        1         4                 …
+    \           …            UINT32        1         4                 …
+    \           Network_name CHAR          64        64                Indicates the name of a network.
+    \           …            UINT32        1         4                 …
+    =========== ============ ============= ========= ================= ============================================================
 
 Therefore, user can edit these 64 bytes in network binary file by any
 hex editor
 
 .. figure:: ../../_static/user_manual/NN_deployment/image9.png
    :align: center
-
-   Figure 1-7 use hex editor to modify model name
+   
+   use hex editor to modify model name
 
 A network name query API is used in module_vipnn.c to get the model name
 during deployment:
@@ -970,8 +965,8 @@ console):
 
 .. figure:: ../../_static/user_manual/NN_deployment/image10.png
    :align: center
-
-   Figure 1-8 model name
+   
+   model name
 
 
 |
@@ -992,24 +987,24 @@ The authentication and decryption are processed by cryptographic
 hardware accelerate engine. The key used for decryption will be stored
 in on-chip eFuse OTP.
 
-Table 2-1 model security algorithm and its key management
-
-==================== ======================== =====================================================================================================================================================================================
-**Secure feature**   **Algorithm Support**    **Key management**
-==================== ======================== =====================================================================================================================================================================================
-Model Authentication Hash: sha256             Use private key to sign model on PC or server.
-                                             
-                     Signature: EdDSA_ED25519 Use public key verify model signature.
-                                             
-                                              Please use the FW signing key to sign the model. NN module will use the public key in FW manifest to verify the signature at runtime.
-                                             
-                                              **Note**: user must enable trust boot feature, so the public key can then be verified by chain of trust.
-Model Encryption     AES_256_CBC              Use AES-256 key to encrypt model on PC or server.
-                                             
-                                              Please use the "user eFuse OTP KEY 0" to encrypt the model. NN module will use this key to decrypt the model at run time.
-                                             
-                                              **Note**: if there is no "user eFuse OTP KEY 0" on your device, user should inject this key by eFuse API – efuse_crypto_key_write(key, 0, 1). This key is one-time-programmable, so please discuss with your team before writing.
-==================== ======================== =====================================================================================================================================================================================
+.. table:: model security algorithm and its key management
+   
+   ==================== ======================== =====================================================================================================================================================================================
+   **Secure feature**   **Algorithm Support**    **Key management**
+   ==================== ======================== =====================================================================================================================================================================================
+   Model Authentication Hash: sha256             Use private key to sign model on PC or server.
+                                               
+                        Signature: EdDSA_ED25519 Use public key verify model signature.
+                                               
+                                                 Please use the FW signing key to sign the model. NN module will use the public key in FW manifest to verify the signature at runtime.
+                                               
+                                                 **Note**: user must enable trust boot feature, so the public key can then be verified by chain of trust.
+   Model Encryption     AES_256_CBC              Use AES-256 key to encrypt model on PC or server.
+                                               
+                                                 Please use the "user eFuse OTP KEY 0" to encrypt the model. NN module will use this key to decrypt the model at run time.
+                                               
+                                                 **Note**: if there is no "user eFuse OTP KEY 0" on your device, user should inject this key by eFuse API – efuse_crypto_key_write(key, 0, 1). This key is one-time-programmable, so please discuss with your team before writing.
+   ==================== ======================== =====================================================================================================================================================================================
 
 
 |
@@ -1017,17 +1012,18 @@ Model Encryption     AES_256_CBC              Use AES-256 key to encrypt model o
 Model Authentication – Hash and Signature check
 -----------------------------------------------
 
-Model authentication including integrity check and trust check. After
+Model authentication including integrity check and trust check. After 
 signing the model by the signing tool, a sha256 hash and signature will
-be appended at the end of model, as shown in Figure 2‑1(b). The
+be appended at the end of model, as shown in :numref:`NN_deployment-image11` (b). The
 signature is used to verify the trust of hash, and the sha256 hash is
 used to verify the integrity of the model. Therefore, we can guarantee
 that the model is not tampered and is from trusted source.
 
 .. figure:: ../../_static/user_manual/NN_deployment/image11.png
    :align: center
+   :name: NN_deployment-image11
 
-   Figure 2-1 signed model format: (a) encrypted only, (b) signed only, (c) signed + encrypted
+   signed model format: (a) encrypted only, (b) signed only, (c) signed + encrypted
 
 
 |
@@ -1040,13 +1036,13 @@ parsing it. It means the model should not be a plain text data on flash.
 Usually, user only need to encrypt the "fixed header" part of the model,
 which is the first 512 bytes of the network graph binary.
 
-Table 2-2 fixed header in binary graph
-
-================= =================
-**Section**       **Size in Bytes**
-Header and Tables 512 (Fixed)
-Data Sections     Dynamic
-================= =================
+.. table::  fixed header in binary graph
+    
+    ================= =================
+    **Section**       **Size in Bytes**
+    Header and Tables 512 (Fixed)
+    Data Sections     Dynamic
+    ================= =================
 
 However, before model deploying, the model should be decrypted, the NN
 driver can create the network correctly. Currently, SDK support to
@@ -1054,9 +1050,9 @@ decrypt the encrypted model header by AES-256-CBC mode with the user OTP
 eFuse key.
 
 After encrypting the model by the signing tool, a random generated IV
-will be added to encrypt info, as shown in Figure 2‑1(a). User can also
+will be added to encrypt info, as shown in :numref:`NN_deployment-image11` (a). User can also
 both sign and encrypt the model, then IV, hash and signature will all be
-appended, as shown in Figure 2‑1(c).
+appended, as shown in :numref:`NN_deployment-image11` (c).
 
 .. note :: Hardware crypto engine on the device can speed up the decryption process.
 
@@ -1086,12 +1082,13 @@ Secure Deployment Flow
 
 After enabling NN decryption or hash/signature check feature in SDK,
 Pro2 will deploy the model securely according to the flow as shown in
-Figure 2-2.
+:numref:`NN_deployment-image12`.
 
 .. figure:: ../../_static/user_manual/NN_deployment/image12.png
    :align: center
-
-   Figure 2-2 secure NN model deployment
+   :name: NN_deployment-image12
+   
+   secure NN model deployment
 
 
 |
@@ -1176,20 +1173,22 @@ Decrypt and verify the model signature with verify key and encrypt key
 Performance Test
 ----------------
 
-The Table 2-3 is the performance test result on Pro2 by using
+The :numref:`NN_deployment-performance_test_result` is the performance test result on Pro2 by using
 yolov4-tiny 416x416 model:
 
-Table 2-3 performance test result
+.. _NN_deployment-performance_test_result:
 
-+--------------------------------------+-----------+--------------------------------------------------------------+
-| Security feature                     | Time (ms) | Remark                                                       |
-+================+=====================+===========+==============================================================+
-|                | Signature check     | 3         | Check the signature of 32 bytes model hash. Time is fixed    |
-| Authentication +---------------------+-----------+--------------------------------------------------------------+
-|                | Hash check          | 38        | Depend on   model size (yolov4-tiny: 4MB)                    |
-+----------------+---------------------+-----------+--------------------------------------------------------------+
-| Decryption     | Cipher text decrypt | 3         | Always decrypt 512 bytes fixed header. Time is fixed         |
-+----------------+---------------------+-----------+--------------------------------------------------------------+
+.. table:: performance test result
+   
+   +--------------------------------------+-----------+--------------------------------------------------------------+
+   | Security feature                     | Time (ms) | Remark                                                       |
+   +================+=====================+===========+==============================================================+
+   |                | Signature check     | 3         | Check the signature of 32 bytes model hash. Time is fixed    |
+   | Authentication +---------------------+-----------+--------------------------------------------------------------+
+   |                | Hash check          | 38        | Depend on   model size (yolov4-tiny: 4MB)                    |
+   +----------------+---------------------+-----------+--------------------------------------------------------------+
+   | Decryption     | Cipher text decrypt | 3         | Always decrypt 512 bytes fixed header. Time is fixed         |
+   +----------------+---------------------+-----------+--------------------------------------------------------------+
 
 
 |
@@ -1274,8 +1273,8 @@ Take Yolov4 as example, the following are the steps to use the tool:
 
 .. figure:: ../../_static/user_manual/NN_deployment/image13.jpg
    :align: center
-
-   Figure 3-1 detection result
+   
+   detection result
 
 
 |
