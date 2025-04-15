@@ -31,6 +31,12 @@ their own model binary. Necessary scripts are in
 *yolov9-t-converted.pt*, from
 https://github.com/WongKinYiu/yolov9?tab=readme-ov-file\ .
 
+* yolov9 have two kinds of structrue, yolov9 (PGI+GELAN) and GELAN, PGI branch is only useful during training, therefore we can use the reparam process to remove the PGI branch during inference, which generated converted model (yolov9-t.pt to yolov9-t-converted.pt)
+* User can refer to the reparam code in yolov9 github website (the reparam process for yolov9-t is same as yolov9-s, just remember to change the config file to gelan-t.yaml) 
+
+.. note :: Please use converted (reparam) tiny model for deploying
+
+
 (1) Convert PyTorch to onnx. 
 
     It is recommend to convert .pt file to onnx file for better performance and compatibility for quantization.
@@ -38,7 +44,9 @@ https://github.com/WongKinYiu/yolov9?tab=readme-ov-file\ .
 
 .. code-block:: bash
 
-    $ python3 export.py --weight yolov9-t.pt --imgsz 416 416 --include onnx
+    $ python3 export.py --weight yolov9-t-converted.pt --imgsz 416 416 --include onnx
+
+
 
 (2) import the model:
 
@@ -80,7 +88,7 @@ After sperating the box and score, the model structure of yolov9 was shown below
 
 .. note :: After speration, the model structrue of yolov9 will have two output, the tensor size is 3549*4 (box) and 3549*80 (class probability), respectively. The yolov9 model provided by the author was trained for detecting 80 classes 
 
-(3) modify the "mean" and "scale" in yolov9_tiny_inputmeta.yml --> Ex:
+(3) modify the "mean" and "scale" in yolov9-t-converted_inputmeta.yml --> Ex:
     scale: 0.00392157 (1/255) 
     
     * Since during the training process of yolov9, the input image has been mapped from 0~255 to 0~1
@@ -95,7 +103,7 @@ After sperating the box and score, the model structure of yolov9 was shown below
 
 .. code-block:: bash
 
-    $ ./pegasus_quantize.sh yolov9_tiny QType
+    $ ./pegasus_quantize.sh yolov9-t-converted QType
 
 (5) add the following to the command in pegasus_export_ovx.sh
 
@@ -113,10 +121,10 @@ After sperating the box and score, the model structure of yolov9 was shown below
 
 .. code-block:: bash
 
-    $ ./pegasus_export_ovx.sh yolov9_tiny QType
+    $ ./pegasus_export_ovx.sh yolov9-t-converted QType
 
 
-Then, a network_binary.nb (yolov9_tiny.nb) will be generated. The generated nb file will locate in **wksp/yolov9-tiny_uint8_nbg_unify**
+Then, a network_binary.nb (yolov9-t-converted.nb) will be generated. The generated nb file will locate in **wksp/yolov9-t-converted_uint8_nbg_unify**
 
 **The instructions above is the process of normal quantization. If you want to improve the model precision of 8bit quantize, please refer to the hybrid quantize section**
 
