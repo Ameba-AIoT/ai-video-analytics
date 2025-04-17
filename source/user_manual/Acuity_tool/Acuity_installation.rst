@@ -35,7 +35,7 @@ Install Acuity toolkit on PC
 
 The Acuity toolkit would be required to generate the NN network binary
 file from a pre-trained model. The following documents and tools are
-provided by Verisillicon, and please refer its user guild to setup the
+provided by Verisilicon, and please refer its user guild to setup the
 PC environment.
 
 
@@ -90,20 +90,22 @@ Please refer to the **Vivante_IDE_User_Guide.pdf: Section Install and Uninstall 
 
 1. Please install VivanteIDE for Linux OS since Vivante_acuity_toolkit_whl_6.18.0_python3.8.10 is install in linux operating system
 2. During installing VivanteIDE, the license file can be skipped since we only want to export network binary file
-3. After installing VivanteIDE, please check the path in your OS to ensure the installation is successfull, the packages should be at 
+3. After installing VivanteIDE, please check the path in your OS to ensure the installation is successful, the packages should be at 
    **/home/$user/Verisilicon/VivanteIDE5.8.1.1 or your designated path**
-
-.. code-block:: bash
-
-   --optimize 'VIP8000NANONI_PID0XAD' \
-   --pack-nbg-unify \
-   --viv-sdk 'home/Acuity/VivanteIDE5.8.1.1/cmdtools' \
 
 4. User can refer to the article NN Deployment or NN Quantization Discussion for how to export nb file
    
    * optimize: the IP name of Pro2
    * pack-nbg-unify: instructions for exporting nbg files
    * viv-sdk: the path of VivanteIDE cmdtools SDK
+
+   please add the following to the command in pegasus_export_ovx.sh
+
+.. code-block:: bash
+
+   --optimize 'VIP8000NANONI_PID0XAD' \
+   --pack-nbg-unify \
+   --viv-sdk 'home/Acuity/VivanteIDE5.8.1.1/cmdtools' \
 
 .. note :: You only need to read Section Install and Uninstall VivanteIDE for Vivante_IDE_User_Guide.pdf, rest of the feature in user guide won't be used for exporting nb files
 
