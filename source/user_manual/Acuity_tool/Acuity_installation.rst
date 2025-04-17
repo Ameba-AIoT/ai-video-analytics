@@ -35,7 +35,7 @@ Install Acuity toolkit on PC
 
 The Acuity toolkit would be required to generate the NN network binary
 file from a pre-trained model. The following documents and tools are
-provided by Verisillicon, and please refer its user guild to setup the
+provided by Verisilicon, and please refer its user guild to setup the
 PC environment.
 
 
@@ -58,7 +58,7 @@ Table 1-1 Acuity tool and document
 
 Verisilicon_SW_VIP_Acuity_6.18.8_whl_20250303.tgz  
 
-1. Please use the correct acuity wheel version. For example, use **Vivante_acuity_toolkit_whl_6.18.0_python3.8.10** version if you are using Ubuntu 20.04
+1. Please use the recommended **Vivante_ML_Toolkit_acuity_whl_6.18.8_python3.8.10** version
 2. Please install the wheel version
 3. Please follow the step in **Vivante.Programming.ACUITY.Toolkit.User.Guide.pdf: Section 2.2 Installing ACUITY Wheel Version** to install the packages
 4. After installation, users can use the instruction **pip3 show acuity** to check the version of acuity
@@ -90,20 +90,22 @@ Please refer to the **Vivante_IDE_User_Guide.pdf: Section Install and Uninstall 
 
 1. Please install VivanteIDE for Linux OS since Vivante_acuity_toolkit_whl_6.18.0_python3.8.10 is install in linux operating system
 2. During installing VivanteIDE, the license file can be skipped since we only want to export network binary file
-3. After installing VivanteIDE, please check the path in your OS to ensure the installation is successfull, the packages should be at 
+3. After installing VivanteIDE, please check the path in your OS to ensure the installation is successful, the packages should be at 
    **/home/$user/Verisilicon/VivanteIDE5.8.1.1 or your designated path**
-
-.. code-block:: bash
-
-   --optimize 'VIP8000NANONI_PID0XAD' \
-   --pack-nbg-unify \
-   --viv-sdk 'home/Acuity/VivanteIDE5.8.1.1/cmdtools' \
 
 4. User can refer to the article NN Deployment or NN Quantization Discussion for how to export nb file
    
    * optimize: the IP name of Pro2
    * pack-nbg-unify: instructions for exporting nbg files
    * viv-sdk: the path of VivanteIDE cmdtools SDK
+
+   please add the following to the command in pegasus_export_ovx.sh
+
+.. code-block:: bash
+
+   --optimize 'VIP8000NANONI_PID0XAD' \
+   --pack-nbg-unify \
+   --viv-sdk 'home/Acuity/VivanteIDE5.8.1.1/cmdtools' \
 
 .. note :: You only need to read Section Install and Uninstall VivanteIDE for Vivante_IDE_User_Guide.pdf, rest of the feature in user guide won't be used for exporting nb files
 
