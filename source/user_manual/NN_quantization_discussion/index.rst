@@ -1,3 +1,5 @@
+.. _target-section-nn-quantization-discussion:
+
 Realtek AmebaPro2 NN Quantization Discussion
 ============================================
 

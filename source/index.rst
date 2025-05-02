@@ -6,6 +6,18 @@
 Welcome to AmebaPro2's Acuity Documentation!
 ============================================
 
+.. figure:: _static/user_manual/ai_scope.png
+    :align: center
+
+    AmebaPro2 System Overview
+
+The figure demonstrate the process of running AI model on AmebaPro2
+
+* Offline Acuity toolkit Model conversion, please refer to :ref:`target-section-acuity-install`
+* Online Model conversion, please refer to :ref:`target-section-ai-train-server`
+* Example for converting AI model and generating optimized nb files, please refer to :ref:`target-section-nn-deployment`
+* More discussion about acuity quantization, please refer to :ref:`target-section-nn-quantization-discussion`
+
 .. toctree::
    :caption: documentation list
    :maxdepth: 3

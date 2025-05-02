@@ -1,3 +1,5 @@
+.. _target-section-nn-deployment:
+
 Realtek AmebaPro2 NN deployment
 ===============================
 

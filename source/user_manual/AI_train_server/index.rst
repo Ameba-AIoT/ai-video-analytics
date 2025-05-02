@@ -1,3 +1,5 @@
+.. _target-section-ai-train-server:
+
 Realtek AI Train Server Guide
 ===============================
 
