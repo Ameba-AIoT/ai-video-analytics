@@ -13,7 +13,16 @@ Download Acuity Toolkit
 
 By downloading and using the software, you agree to fully comply with the terms and conditions of the :ref:`target-section-acuity-license`
 
-Acuity ToolKit Link: https://github.com/Ameba-AIoT/ai-video-analytics/releases
+Toolkit Files
+~~~~~~~~~~~~~
+
+- :download:`acuity_examples_c901149.tgz <../../_download/Acuity/acuity_examples_c901149.tgz>`
+
+- :download:`Verisilicon_SW_NBInfo_1.2.17_20230412.tgz <../../_download/Acuity/Verisilicon_SW_NBInfo_1.2.17_20230412.tgz>`
+
+- :download:`Verisilicon_SW_VIP_Acuity_6.18.8_whl_20250303.tgz <../../_download/Acuity/Verisilicon_SW_VIP_Acuity_6.18.8_whl_20250303.tgz>`
+
+- :download:`Verisilicon_Tool_VivanteIDE_v5.8.1_CL664938_Linux_Windows_SDK_p6.4.x_dev_6.4.14.tgz <../../_download/Acuity/Verisilicon_Tool_VivanteIDE_v5.8.1_CL664938_Linux_Windows_SDK_p6.4.x_dev_6.4.14_23Q1_CL665849A_20230426.tgz>`
 
 |
 
