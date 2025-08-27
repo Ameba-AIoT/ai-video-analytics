@@ -26,7 +26,10 @@ Toolkit Files
 
 - :download:`Verisilicon_Tool_VivanteIDE_v5.8.1_CL664938_Linux_Windows_SDK_p6.4.x_dev_6.4.14.tgz <https://github.com/Ameba-AIoT/ameba-ai-offline-toolkit/releases/download/v1.0.0/Verisilicon_Tool_VivanteIDE_v5.8.1_CL664938_Linux_Windows_SDK_p6.4.x_dev_6.4.14_23Q1_CL665849A_20230426.tgz>`
 
-.. note :: Please sign in to your GitHub account to download the files
+.. note :: 
+   ​To access offline AI model conversion tools, please contact AmebaAIoT@realtek.com with the subject line **"Offline AI Model"**. Ensure that you use your **official company, institution, or educational organization email account** for this request. This will help to verify your affiliation and process your inquiry more efficiently.
+   
+   Once approved, please sign in to your GitHub account to download the files 
 
 Install Acuity Toolkit
 ----------------------
