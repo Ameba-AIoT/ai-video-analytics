@@ -69,9 +69,9 @@ Please refer to :ref:`target-section-acuity-install` about how to install Verisi
     +               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
     |               | Verisilicon_Tool_VivanteIDE_v5.7.0                                 | -  command line tool to export network binary file                                                                                      |
     +---------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
-    | Acuity 6.18.0 | Verisilicon_Tool_Acuity_Toolkit_6.18.0_Binary_Whl_Src_20230331.tgz | -  Acuity toolkit user guide document                                                                                                   |
+    | Acuity 6.18.8 | Verisilicon_SW_VIP_Acuity_6.18.8_Whl_Src_20250303.tgz              | -  Acuity toolkit user guide document                                                                                                   |
     |               |                                                                    |                                                                                                                                         |
-    |               |                                                                    | -  Acuity binary/python version toolkit (Please check the installation steps in chapter 2 of Vivante.VIP.ACUITY.Toolkit.User.Guide.pdf) |
+    |               | acuity_examples_c901149.tgz                                        | -  Acuity binary/python version toolkit (Please check the installation steps in chapter 2 of Vivante.VIP.ACUITY.Toolkit.User.Guide.pdf) |
     |               |                                                                    |                                                                                                                                         |
     |               |                                                                    | -  Acuity example and scripts                                                                                                           |
     +               +--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
@@ -85,7 +85,7 @@ Please refer to :ref:`target-section-acuity-install` about how to install Verisi
 +-------------------------+--------+--------+-------+--------+
 |                                  | AcuityToolkit version   |
 +                                  +--------+-------+--------+
-|                                  | 5.21.1 | 6.6.1 | 6.18.0 |
+|                                  | 5.21.1 | 6.6.1 | 6.18.8 |
 +-------------------------+--------+--------+-------+--------+
 | Viplite driver version  | 1.3.4  |   V    |   X   |   X    |
 +                         +--------+--------+-------+--------+
@@ -136,7 +136,7 @@ if **Acuity 5.21.1**:
    --pack-nbg-viplite \
    --viv-sdk 'home/Acuity/VivanteIDE5.3.0_cmdtools/cmdtools' \
 
-if **Acuity 6.6.1** or **6.18.0**:
+if **Acuity 6.6.1** or **6.18.8**:
 
 .. code-block:: bash
 
@@ -434,8 +434,8 @@ in SDK:
     ==================== ================= ========== ========= ============================ ============================
     Category             Model             Input size Quantized DDR memory                   File size
     ==================== ================= ========== ========= ============================ ============================
-    Object detection     | Yolov3-tiny     | 416x416  | uint8   | 6.9 MB (6,946,128 bytes)|  | 5.6 MB (5,568,384 bytes)
-                         | Yolov4-tiny     | 416x416  | uint8   | 7.7 MB (7,712,412 bytes)|  | 4.1 MB (4,131,712 bytes)
+    Object detection     | Yolov3-tiny     | 416x416  | uint8   | 6.9 MB (6,946,128 bytes)   | 5.6 MB (5,568,384 bytes)
+                         | Yolov4-tiny     | 416x416  | uint8   | 7.7 MB (7,712,412 bytes)   | 4.1 MB (4,131,712 bytes)
                          | Yolov4-tiny     | 576x320  | uint8   | 7.48 MB (7,840,836 bytes)  | 3.85 MB (4,043,136 bytes)
                          | Yolov7-tiny     | 416x416  | uint8   | 8.2 MB (8,597,072 bytes)   | 4.44 MB (4,664,512 bytes)
                          | NanoDet-Plus-m  | 416x416  | uint8   | 4.33 MB (4,542,016 bytes)  | 1.86 MB (1,959,040 bytes)
@@ -448,7 +448,7 @@ in SDK:
                          | YAMNet_s        | 96x64    | hybrid  | 0.73 MB (729,608 bytes)    | 0.67 MB (678,336 bytes)
     ==================== ================= ========== ========= ============================ ============================
 
-|
+
 
 Evaluate memory usage of model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -890,7 +890,7 @@ node by setting "inputmeta.yml" as following:
               - 320
 
 
-.. note :: If user want to use this feature, please use Acuity 6.18.0 and VIPLite driver 1.12.0. The older version cannot support it well.
+.. note :: If user want to use this feature, please use Acuity 6.18.8 and VIPLite driver 1.12.0. The older version cannot support it well.
 
 
 |
@@ -1430,3 +1430,20 @@ upsample                upsampling
 yolo                    yolo
 ======================= =====================
 
+Appendix B. Acuity Supported AI Framework
+=========================================
+
+======================= ======================
+**AI Framework**        **Import File Format**
+======================= ======================
+Caffe                   .caffemodel
+TensorFlow              .pb
+TensorFlow Lite         .tflite
+Darknet                 .cfg
+ONNX                    .onnx
+PyTorch                 .pt
+Keras                   .h5
+======================= ======================
+
+.. note :: No quantization is needed on Acuity Networks converted from ONNX, TensorFlow and Tensorflow Lite models that have been quantized. 
+    Kindly note that **per-channel** quantized models are **NOT** supported on Pro2 NPU, please ensure that your model is **per-tensor** quantized.
