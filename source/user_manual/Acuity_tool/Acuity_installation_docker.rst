@@ -42,6 +42,8 @@ Docker Entry
 Linux
 ~~~~~
 
+Please refer to https://docs.docker.com/engine/install/ubuntu/ to install docker engine on Ubuntu
+
 Link: https://github.com/Ameba-AIoT/ameba-ai-offline-toolkit/tree/main/Docker/Linux
 
 .. code-block:: bash
@@ -65,6 +67,10 @@ The script will mount acuity_examples and Verisilicon_SW_NBInfo into docker, ple
 
 Windows
 ~~~~~~~
+
+Please refer to https://docs.docker.com/desktop/setup/install/windows-install/ to install docker desktop on Windows
+
+* While installing docker desktop, **don't select** allow windows container to be used with this installation
 
 Link: https://github.com/Ameba-AIoT/ameba-ai-offline-toolkit/tree/main/Docker/Windows
 
