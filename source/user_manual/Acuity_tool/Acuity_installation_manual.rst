@@ -1,7 +1,5 @@
-.. _target-section-acuity-install:
-
-Acuity Toolkit Installation
-===========================
+Acuity Toolkit Manual Installation
+==================================
 
 .. contents::
   :local:
