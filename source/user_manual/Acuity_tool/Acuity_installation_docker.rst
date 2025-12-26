@@ -41,9 +41,12 @@ Docker Entry
 
 Linux
 ~~~~~
+
+Link: https://github.com/Ameba-AIoT/ameba-ai-offline-toolkit/tree/main/Docker/Linux
+
 .. code-block:: bash
 
-   cd Linux
+   cd Docker/Linux
    source install.sh (This script will download the docker image from ghcr.io)
    source run.sh (docker entry)
 
@@ -63,9 +66,11 @@ The script will mount acuity_examples and Verisilicon_SW_NBInfo into docker, ple
 Windows
 ~~~~~~~
 
+Link: https://github.com/Ameba-AIoT/ameba-ai-offline-toolkit/tree/main/Docker/Windows
+
 .. code-block:: bash
 
-   cd Windows
+   cd Docker/Windows
    source install.bat (This script will download the docker image from ghcr.io)
    source run.bat (docker entry)
 
