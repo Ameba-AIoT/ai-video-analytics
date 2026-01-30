@@ -36,6 +36,18 @@ We store or docker images on **GitHub Container Registry**, please establish Per
 3. For permissions: at least select: write:packages, read:packages, delete:packages
 4. For Repository access: please select **All repositories**
 
+Export Script Modification
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please add the following command in 'pegasus_export_ovx.sh' to ensure successful export on Docker.
+
+.. code-block:: bash
+
+   --optimize 'VIP8000NANONI_PID0XAD' \
+   --pack-nbg-unify \
+   --viv-sdk '/opt/acuity/Vivante_IDE/VivanteIDE5.8.1.1/cmdtools' \
+
+
 Docker Entry
 ------------
 
