@@ -29,7 +29,7 @@ Toolkit Files and Github Access
    Once approved, please sign in to your GitHub account to download the files 
 
 
-We store or docker images on **GitHub Container Registry**, please establish Personal Access Token\
+We store or docker images on **GitHub Container Registry (GHCR)**, please establish Personal Access Token (PAT)\
 
 1. GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
 2. Generate new token (classic)
@@ -50,6 +50,12 @@ Please add the following command in 'pegasus_export_ovx.sh' to ensure successful
 
 Docker Entry
 ------------
+
+Before excuting the "install" and "run" scripts, kindly ensure that you have authenticate to GHCR on Docker, please use the generated PAT as password.
+
+.. code-block:: bash
+
+   docker login ghcr.io -u <username>
 
 Linux
 ~~~~~
