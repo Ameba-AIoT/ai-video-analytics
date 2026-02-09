@@ -117,7 +117,7 @@ Please refer to the **Vivante_IDE_User_Guide.pdf: Section Install and Uninstall 
 
    --optimize 'VIP8000NANONI_PID0XAD' \
    --pack-nbg-unify \
-   --viv-sdk 'home/Acuity/VivanteIDE5.8.1.1/cmdtools' \
+   --viv-sdk 'home/<username>/VeriSilicon/VivanteIDE5.8.1.1/cmdtools' \
 
 .. note :: You only need to read Section Install and Uninstall VivanteIDE for Vivante_IDE_User_Guide.pdf, rest of the feature in user guide won't be used for exporting nb files
 

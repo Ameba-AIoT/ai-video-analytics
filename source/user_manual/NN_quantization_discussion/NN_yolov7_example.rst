@@ -115,11 +115,21 @@ Next, export .pt to onnx
 
 **Acuity 6.18.8**:
 
+Manual installation:
+
 .. code-block:: bash
 
    --optimize 'VIP8000NANONI_PID0XAD' \
    --pack-nbg-unify \
-   --viv-sdk 'home/Acuity/VivanteIDE5.8.1.1/cmdtools' \
+   --viv-sdk 'home/<username>/VeriSilicon/VivanteIDE5.8.1.1/cmdtools' \
+
+Docker installation:
+
+.. code-block:: bash
+
+   --optimize 'VIP8000NANONI_PID0XAD' \
+   --pack-nbg-unify \
+   --viv-sdk '/opt/acuity/Vivante_IDE/VivanteIDE5.8.1.1/cmdtools' \
 
 (6) export the NBG file:
 
