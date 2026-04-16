@@ -36,18 +36,6 @@ We store or docker images on **GitHub Container Registry (GHCR)**, please establ
 3. For permissions: at least select: write:packages, read:packages, delete:packages
 4. For Repository access: please select **All repositories**
 
-Export Script Modification
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Please add the following command in 'pegasus_export_ovx.sh' to ensure successful export on Docker.
-
-.. code-block:: bash
-
-   --optimize 'VIP8000NANONI_PID0XAD' \
-   --pack-nbg-unify \
-   --viv-sdk '/opt/acuity/Vivante_IDE/VivanteIDE5.8.1.1/cmdtools' \
-
-
 Docker Entry
 ------------
 
@@ -83,12 +71,25 @@ The script will mount acuity_examples and Verisilicon_SW_NBInfo into docker, ple
       -v "$(pwd)/Verisilicon_SW_NBInfo_1.2.17_20230412:/workspace/Verisilicon_SW_NBInfo_1.2.17_20230412" \
       ${IMAGE_NAME}:${IMAGE_TAG}
 
+.. tip::
+   By default the Docker daemon always runs as the ``root`` user, as such, ``sudo`` command is necessary when calling docker commands.
+
+   You may create a Unix group called ``docker`` and add your user there.
+   
+   .. code-block:: bash
+      
+      $ sudo groupadd docker
+      $ sudo usermod -aG docker $USER
+      $ newgrp docker
+
+   Kindly refer to the `Docker post-installation guide <https://docs.docker.com/engine/install/linux-postinstall/>`_ for more details.
+
 Windows
 ~~~~~~~
 
 Please refer to https://docs.docker.com/desktop/setup/install/windows-install/ to install docker desktop on Windows
 
-* While installing docker desktop, **don't select** allow windows container to be used with this installation
+* While installing docker desktop, **DO NOT select** allow windows container to be used with this installation
 
 Link: https://github.com/Ameba-AIoT/ameba-ai-offline-toolkit/tree/main/Docker/Windows
 
