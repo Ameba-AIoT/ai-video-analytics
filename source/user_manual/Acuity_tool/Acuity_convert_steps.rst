@@ -27,7 +27,7 @@ Step 2: Import Model
 
 Import your model using command ``./pegasus_import.sh <model_name>``
 
-Once import is successful, kindly refer to this page to modify the ``inputmeta.yml`` according to the type of imported model.
+Once import is successful, kindly refer to this `modification page <https://ameba-doc-ai-video-analytics-doc.readthedocs-hosted.com/en/latest/user_manual/NN_quantization_discussion/Inputmeta_file_modification.html>`_ to modify the ``inputmeta.yml`` according to the type of imported model.
 
 Step 3: Quantize Model
 ----------------------

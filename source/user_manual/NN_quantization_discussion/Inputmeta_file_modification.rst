@@ -123,3 +123,22 @@ Some models which require gray image dataset, for example, fer2013_cnn, you need
 +----------------------+---------------------+
 
 .. note :: TENSOR means the data will be native tensor data without any header. For gray image dataset, tensor files instead of jpeg or bmp files are used for calibration.
+
+MobileNetV2
+~~~~~~~~~~~
+
++----------------------+-------------------------+
+| Parameter            | Value                   |
++======================+=========================+
+| reverse_channel      | false                   |
++----------------------+-------------------------+
+| mean                 | 0, 0, 0                 |
++----------------------+-------------------------+
+| scale                | 1.0                     |
++----------------------+-------------------------+
+| add_preproc_node     | true                    |
++----------------------+-------------------------+
+| preproc_type         | TENSOR                  |
++----------------------+-------------------------+
+
+.. note :: Currently, the SDK assumes that MobileNetV2 is trained under the PyTorch framework with standard ImageNet normalization; hence, the mean is set to 0. There is no need to perform scaling at model conversion as the normalization process will be handled by the pre-process function in SDK; hence the scale is set to 1.
