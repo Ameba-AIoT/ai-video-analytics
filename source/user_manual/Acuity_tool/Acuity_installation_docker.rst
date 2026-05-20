@@ -24,9 +24,9 @@ Toolkit Files and Github Access
 - :download:`Verisilicon_SW_NBInfo_1.2.17_20230412.tgz <https://github.com/Ameba-AIoT/ameba-ai-offline-toolkit/releases/download/v1.0.0/Verisilicon_SW_NBInfo_1.2.17_20230412.tgz>`
 
 .. note :: 
-   ​To access offline AI model conversion tools, please contact AmebaAIoT@realtek.com with the subject line **"Offline AI Model"** using **official company, institution, or educational organization email account**. Please include the **organization name, GitHub username, a brief description of your project**, this will help us to verify your affiliation and process your inquiry more efficiently.
+   To access offline AI model conversion tools, please fill up this  `Form <https://forms.cloud.microsoft/r/ME5sTbximx>`__ with your **official company, institution, or educational organization email account**. This will help us to verify your application and process your inquiry more efficiently. 
    
-   Once approved, please sign in to your GitHub account to download the files 
+   Once approved, please sign in to your GitHub account to download the files.
 
 
 We store or docker images on **GitHub Container Registry (GHCR)**, please establish Personal Access Token (PAT)\
